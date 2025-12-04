@@ -1,0 +1,1 @@
+<?= redirect("/pages/cashiers/list.php"); ?>
