@@ -34,12 +34,14 @@ if (@$_POST['selanjutnya']) {
 
     $insert = createData("transaction", ["date" => $date, "code" => $kode_transaksi, "id_cashier" => $id_cashier, "total" => 0]);
 
-    $_SESSION['id_transaksi'] = $id;
+    $newData = readData("transaction", ["code" => $kode_transaksi], 1, 0, false, $conn)["data"];
+    $id = array_key_first($newData);
+    $_SESSION['id_transaction'] = $id;
 
     if ($insert > 0) {
         echo "<p>Gagal menyimpan transaksi: " . mysqli_error($conn) . "</p>";
     }
-    redirect("/pages/transactions/transaction_details.php?id=$id");
+    redirect("/pages/transactions/transaction_details.php");
 }
 ?>
 
