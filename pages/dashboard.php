@@ -1,1 +1,1 @@
-<?= redirect("/pages/cashiers/list.php"); ?>
+<?= include_once $_SERVER['DOCUMENT_ROOT'] . "/config/config.php"; redirect("/pages/cashiers/list.php"); ?>
